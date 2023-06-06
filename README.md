@@ -6,6 +6,8 @@ This project was created using `pnpm create svelte`.
 
 When using `prerender` within a `+server.js` file and attempting to execute a SEMRush cURL command a `405 Method not allowed` is returned, however when using `prerender` with a `+page.server.js` file a `200 OK` is returned (which is expected).
 
+We've also noticed then when sending the cURL request with `-H 'Accept: text/html'` `+server.js` will return `200 OK`.
+
 #### Expected
 
 A `200 OK` response should be returned even with `+server.js`.
@@ -34,6 +36,5 @@ pnpm preview
 
 #### Testing the website
 
-```
-curl http://localhost:4173
-```
+* Fail – `curl http://localhost:4173`
+* Pass – `curl -H 'Accept: text/html' http://localhost:4173`
